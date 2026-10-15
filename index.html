@@ -1,104 +1,556 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <meta name="description" content="Student portfolio showcasing skills, projects, and achievements."> 
-    <title>My Student Portfolio</title> 
-    <link rel="stylesheet" href="css/style.css"> 
-    <script src="js/script.js" defer></script> 
-</head> 
-<body> 
-    <header class="site-header"> 
-        <nav class="navbar"> 
-            <a class="logo" href="#home">MyPortfolio</a> 
-            <ul class="nav-links"> 
-                <li><a href="#home">Home</a></li> 
-                <li><a href="#about">About</a></li> 
-                <li><a href="#skills">Skills</a></li> 
-                <li><a href="#projects">Projects</a></li> 
-                <li><a href="#contact">Contact</a></li> 
-            </ul> 
-        </nav> 
-    </header> 
- 
-    <main> 
-        <section id="home" class="hero"> 
-            <div class="hero-content"> 
-                <p class="eyebrow">STUDENT PORTFOLIO</p> 
-                <h1>Hello, I'm <span id="studentName">Hazel Yvonne S. Lagrio</span></h1> 
-                <h2 id="tagline">Aspiring Web Developer</h2> 
-                <p id="introduction">I enjoy learning technology and building useful applications.</p> 
-                <div class="hero-actions"> 
-                    <a class="btn" href="#projects">View My Projects</a> 
-                    <a class="btn btn-outline" href="#contact">Contact Me</a> 
-                </div> 
-            </div> 
-            <div class="profile-container"> 
-                <img id="profileImage" src="images/pekture1.jpg" alt="Student profile photo"> 
-            </div> 
-        </section> 
- 
-        <section id="about" class="section"> 
-            <h2 class="section-title">About Me</h2> 
-            <div class="about-content"> 
-                <p id="biography"></p> 
-                <div class="information-card"> 
-                    <h3>Educational Background</h3> 
-                    <p id="education"></p> 
-                    <p id="graduation"></p> 
-                    <h3>Career Goal</h3> 
-                    <p id="careerGoal"></p> 
-                    <h3>Interests</h3> 
-                    <p id="interests"></p> 
-                </div> 
-            </div> 
-        </section> 
-          <section id="skills" class="section alternate"> 
-            <h2 class="section-title">My Skills</h2> 
-            <p class="section-description">Technologies and competencies I continue to develop.</p> 
-            <div id="skillsContainer" class="skills-grid">Loading skills...</div> 
-        </section> 
- 
-        <section id="projects" class="section"> 
-            <h2 class="section-title">My Projects</h2> 
-            <p class="section-description">Academic and personal projects I have worked on.</p> 
-            <div id="projectsMessage" class="status-message" aria-live="polite"></div> 
-            <div id="projectsContainer" class="projects-grid"></div> 
-            <div class="github-section"> 
-                <h3>Latest GitHub Repositories</h3> 
-                <p class="section-description">My five most recently updated public repositories.</p> 
-                <div id="githubMessage" class="status-message" aria-live="polite"></div> 
-                <ul id="githubRepos" class="repository-list"></ul> 
-                <a id="githubProfile" class="text-link" href="https://github.com/" 
-                   target="_blank" rel="noopener noreferrer">Visit My GitHub Profile</a> 
-            </div> 
-        </section> 
- 
-        <section id="contact" class="section alternate"> 
-            <h2 class="section-title">Contact Me</h2> 
-            <p class="section-description">Contact me about collaboration, projects, or opportunities.</p> 
-            <div class="contact-details"> 
-                <p>Email: <a id="contactEmail" href="mailto:hazelsuyat16@gmail.com">hazelsuyat16@gmail.com</a></p> 
-                <p id="contactLocation"></p> 
-                <p><a id="linkedinLink" href="https://www.linkedin.com/" 
-                      target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p> 
-            </div> 
-            <form id="contactForm" class="contact-form"> 
-                <label for="visitorName">Name</label> 
-                <input type="text" id="visitorName" name="visitorName" required minlength="2"> 
-                <label for="visitorEmail">Email</label> 
-                <input type="email" id="visitorEmail" name="visitorEmail" required> 
-                <label for="visitorMessage">Message</label> 
-                <textarea id="visitorMessage" name="visitorMessage" rows="5" required 
-minlength="10"></textarea> 
-                <button type="submit" class="btn">Submit Message</button> 
-                <p id="formFeedback" role="status" aria-live="polite"></p> 
-            </form> 
-        </section> 
-    </main> 
- 
-    <footer><p id="footerText">&copy; 2026 My Student Portfolio</p></footer> 
-    <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">↑ Top</button> 
-</body> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Student portfolio showcasing skills, projects, and achievements.">
+    <title>Hazel Yvonne S. Lagrio - Portfolio</title>
+    <style>
+        :root {
+            --primary: #ec4899;
+            --dark: #831843;
+            --light: #fdf2f8;
+            --white: #ffffff;
+            --text: #4a2940;
+            --muted: #ec4899;
+            --border: #fbcfe8;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+        }
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        section {
+            scroll-margin-top: 90px;
+        }
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+        .navbar {
+            max-width: 1100px;
+            margin: auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--dark);
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: var(--text);
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .hero {
+            max-width: 1100px;
+            min-height: 520px;
+            margin: auto;
+            padding: 70px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        .eyebrow {
+            color: var(--primary);
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .hero h1 {
+            color: var(--dark);
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            line-height: 1.2;
+            margin-bottom: 14px;
+        }
+        .hero h1 span {
+            color: var(--primary);
+        }
+        .hero h2 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+        .hero-content > p:not(.eyebrow) {
+            margin-bottom: 24px;
+        }
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .profile-container {
+            flex: 0 0 280px;
+            display: flex;
+            justify-content: center;
+        }
+        .profile-container img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid var(--light);
+        }
+        .btn {
+            display: inline-block;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px 18px;
+            font: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: var(--dark);
+            border-color: var(--dark);
+        }
+        .btn-outline {
+            background: var(--white);
+            color: var(--primary);
+        }
+        .section {
+            padding: 65px 24px;
+        }
+        .section > * {
+            max-width: 1050px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .alternate {
+            background: var(--light);
+        }
+        .section-title {
+            text-align: center;
+            color: var(--dark);
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+        .section-description {
+            text-align: center;
+            color: var(--muted);
+            margin-bottom: 28px;
+        }
+        .about-content {
+            max-width: 850px;
+        }
+        .about-content > p {
+            margin-bottom: 22px;
+        }
+        .information-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+        }
+        .information-card h3 {
+            color: var(--primary);
+            margin-top: 15px;
+        }
+        .information-card h3:first-child {
+            margin-top: 0;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 25px;
+        }
+        .skill-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .skill-card:hover {
+            transform: translateY(-4px);
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            margin-top: 25px;
+        }
+        .project-card {
+            min-width: 0;
+            overflow: hidden;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(23, 37, 84, 0.1);
+        }
+        .project-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            background: var(--light);
+        }
+        .project-content {
+            padding: 22px;
+        }
+        .project-content h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        .project-content p {
+            margin-bottom: 12px;
+        }
+        .project-tech, .repository-language {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        .project-link {
+            display: inline-block;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .github-section {
+            margin-top: 65px;
+        }
+        .github-section h3 {
+            text-align: center;
+            color: var(--dark);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        .repository-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+        .repository-list li {
+            background: var(--light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+        .repository-list a {
+            font-weight: bold;
+        }
+        .text-link {
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .status-message {
+            margin: 12px 0;
+            text-align: center;
+        }
+        .contact-details {
+            text-align: center;
+            margin-bottom: 25px;
+            line-height: 2;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 25px auto 0;
+            display: grid;
+            gap: 10px;
+        }
+        .contact-form label {
+            font-weight: bold;
+            margin-top: 8px;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            font: inherit;
+            background: var(--white);
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 1px;
+        }
+        .contact-form button {
+            justify-self: start;
+            margin-top: 10px;
+        }
+        #formFeedback {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 22px;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            padding: 12px 16px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: none;
+        }
+        .back-to-top.visible {
+            display: block;
+        }
+        @media (max-width: 900px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+            }
+            .nav-links {
+                justify-content: center;
+                gap: 12px;
+            }
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 45px;
+            }
+            .profile-container img {
+                width: 200px;
+                height: 200px;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .section {
+                padding: 45px 18px;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <a class="logo" href="#home">MyPortfolio</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <p class="eyebrow">STUDENT PORTFOLIO</p>
+                <h1>Hello, I'm <span id="studentName">Hazel Yvonne S. Lagrio</span></h1>
+                <h2 id="tagline">Aspiring Web Developer</h2>
+                <p id="introduction">I enjoy learning technology and building useful applications that make a difference.</p>
+                <div class="hero-actions">
+                    <a class="btn" href="#projects">View My Projects</a>
+                    <a class="btn btn-outline" href="#contact">Contact Me</a>
+                </div>
+            </div>
+            <div class="profile-container">
+                <img id="profileImage" src="images/pekture1.jpg" alt="Hazel Yvonne S. Lagrio profile photo">
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p id="biography">I am Hazel Yvonne S. Lagrio, a dedicated and passionate student pursuing a career in technology. I have always been fascinated by how websites and applications work, which led me to explore web development. I am eager to learn new skills, solve problems through code, and create digital experiences that are both functional and user-friendly. I believe that continuous learning and creativity are the keys to growing in this field.</p>
+                <div class="information-card">
+                    <h3>Educational Background</h3>
+                    <p id="education">Bachelor of Science in Information Technology</p>
+                    <p id="graduation">Expected Graduation: 2027</p>
+                    <h3>Career Goal</h3>
+                    <p id="careerGoal">To become a professional Full-Stack Web Developer, contribute to meaningful projects, and eventually mentor aspiring developers in the tech community.</p>
+                    <h3>Interests</h3>
+                    <p id="interests">Web Design, Frontend Development, User Experience, Open Source, and Emerging Technologies in AI.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section alternate">
+            <h2 class="section-title">My Skills</h2>
+            <p class="section-description">Technologies and competencies I continue to develop.</p>
+            <div id="skillsContainer" class="skills-grid">
+                <div class="skill-card">HTML5</div>
+                <div class="skill-card">CSS3</div>
+                <div class="skill-card">JavaScript</div>
+                <div class="skill-card">Git & GitHub</div>
+                <div class="skill-card">Responsive Design</div>
+                <div class="skill-card">Problem Solving</div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <h2 class="section-title">My Projects</h2>
+            <p class="section-description">Academic and personal projects I have worked on.</p>
+            <div id="projectsMessage" class="status-message" aria-live="polite"></div>
+            <div id="projectsContainer" class="projects-grid">
+                <article class="project-card">
+                    <img src="images/project-placeholder.jpg" alt="Portfolio Website" loading="lazy">
+                    <div class="project-content">
+                        <h3>Personal Portfolio Website</h3>
+                        <p>A responsive portfolio built with HTML, CSS, and JavaScript to showcase my skills and projects.</p>
+                        <p class="project-tech">Technologies: HTML5, CSS3, JavaScript</p>
+                        <p>My Role: Sole Developer & Designer</p>
+                        <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <img src="images/project-placeholder.jpg" alt="Task Manager App" loading="lazy">
+                    <div class="project-content">
+                        <h3>Simple Task Manager</h3>
+                        <p>JavaScript-based app that lets users add, remove, and mark tasks as completed.</p>
+                        <p class="project-tech">Technologies: HTML5, CSS3, JavaScript DOM</p>
+                        <p>My Role: Developer</p>
+                        <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <img src="images/project-placeholder.jpg" alt="Landing Page Design" loading="lazy">
+                    <div class="project-content">
+                        <h3>Landing Page Design</h3>
+                        <p>Mobile-friendly landing page demonstrating modern CSS layout techniques.</p>
+                        <p class="project-tech">Technologies: HTML5, CSS3 Flexbox & Grid</p>
+                        <p>My Role: Designer & Developer</p>
+                        <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </article>
+            </div>
+            <div class="github-section">
+                <h3>Latest GitHub Repositories</h3>
+                <p class="section-description">My five most recently updated public repositories.</p>
+                <div id="githubMessage" class="status-message" aria-live="polite"></div>
+                <ul id="githubRepos" class="repository-list">
+                    <li><a href="#">portfolio-website</a> — <span class="repository-language">Main language: HTML/CSS/JS</span></li>
+                    <li><a href="#">task-manager-js</a> — <span class="repository-language">Main language: JavaScript</span></li>
+                    <li><a href="#">landing-page-demo</a> — <span class="repository-language">Main language: CSS</span></li>
+                    <li><a href="#">html-basics</a> — <span class="repository-language">Main language: HTML</span></li>
+                    <li><a href="#">css-styling</a> — <span class="repository-language">Main language: CSS</span></li>
+                </ul>
+                <a id="githubProfile" class="text-link" href="https://github.com/hazs.lagrio" target="_blank" rel="noopener noreferrer">Visit My GitHub Profile</a>
+            </div>
+        </section>
+
+        <section id="contact" class="section alternate">
+            <h2 class="section-title">Contact Me</h2>
+            <p class="section-description">Contact me about collaboration, projects, or opportunities.</p>
+            <div class="contact-details">
+                <p>Email: <a id="contactEmail" href="mailto:hazelsuyat16@gmail.com">hazelsuyat16@gmail.com</a></p>
+                <p id="contactLocation">Location: Philippines</p>
+                <p><a id="linkedinLink" href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
+            </div>
+            <form id="contactForm" class="contact-form">
+                <label for="visitorName">Name</label>
+                <input type="text" id="visitorName" name="visitorName" required minlength="2">
+                <label for="visitorEmail">Email</label>
+                <input type="email" id="visitorEmail" name="visitorEmail" required>
+                <label for="visitorMessage">Message</label>
+                <textarea id="visitorMessage" name="visitorMessage" rows="5" required minlength="10"></textarea>
+                <button type="submit" class="btn">Submit Message</button>
+                <p id="formFeedback" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p id="footerText">&copy; 2026 Hazel Yvonne S. Lagrio | Student Portfolio</p>
+    </footer>
+    <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">↑ Top</button>
+
+    <script>
+        "use strict";
+        document.addEventListener("DOMContentLoaded", function () {
+            setupContactForm();
+            setupBackToTop();
+        });
+
+        function setupContactForm() {
+            const form = document.getElementById("contactForm");
+            const feedback = document.getElementById("formFeedback");
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    feedback.textContent = "Please complete all fields correctly.";
+                    return;
+                }
+                const visitorName = document.getElementById("visitorName").value.trim();
+                const visitorMessage = document.getElementById("visitorMessage").value.trim();
+                if (visitorName.length < 2 || visitorMessage.length < 10) {
+                    feedback.textContent = "Enter a valid name and a message of at least 10 characters.";
+                    return;
+                }
+                feedback.textContent = "Thank you, " + visitorName + "! Your message has been received.";
+                form.reset();
+                setTimeout(() => feedback.textContent = "", 5000);
+            });
+        }
+
+        function setupBackToTop() {
+            const button = document.getElementById("backToTop");
+            window.addEventListener("scroll", function () {
+                button.classList.toggle("visible", window.scrollY > 300);
+            });
+            button.addEventListener("click", function () {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        }
+    </script>
+</body>
 </html>
