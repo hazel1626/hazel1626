@@ -1,0 +1,46 @@
+"name": "Hazel Yvonne S. Lagrio", 
+  "tagline": "Aspiring Web Developer", 
+  "introduction": "BSINTE student at NVSU passionate about web development, databases, and practical digital solutions.", 
+  "profileImage": "pekture1.jpg", 
+  "about": { 
+    "biography": "\"I am an IT student at Nueva Vizcaya State University aspiring to become a professional software developer. I specialize in web development, database management, and UI design, turning ideas into clean, functional applications using Java, MySQL, HTML, CSS, and JavaScript.\"", 
+    "school": "Nueva Vizcaya State University", 
+    "program": "Bachelor of Science in Information Technology", 
+    "graduation": "Expected graduation: 2029", 
+    "careerGoal": "To become a professional software developer.", 
+    "interests": "Web development, databases, UI design, and problem solving." 
+  }, 
+  "skills": ["HTML", "CSS", "JavaScript", "Java", "MySQL", "Problem Solving"], 
+  "projects": [ 
+    { 
+      "title": "Student Record System", 
+      "description": "An application for organizing student records and academic information.", 
+      "technologies": "Java, MySQL", 
+      "role": "Designed the interface and developed record management features.", 
+      "image": "images/project.jpg", 
+      "link": "https://github.com/hazs.lagrio/student-record-system" 
+    }, 
+    { 
+      "title": "Personal Portfolio", 
+      "description": "A responsive website presenting my profile, skills, and academic work.", 
+      "technologies": "HTML, CSS, JavaScript", 
+      "role": "Designed and developed the website.", 
+      "image": "images/project2.jpg", 
+      "link": "https://github.com/hazs.lagrio/student-portfolio" 
+    }, 
+    { 
+      "title": "Inventory Management System", 
+      "description": "A prototype for recording items and monitoring stock.", 
+      "technologies": "Java, MySQL,", 
+      "role": "Developed inventory functions as part of a student team.", 
+      "image": "images/project1.jpg", 
+      "link": "https://github.com/hazs.lagrio/inventory-system" 
+    } 
+  ], 
+  "githubUsername": "hazs.lagrio", 
+  "contact": { 
+    "email": "hazelsuyat16@gmail.com", 
+   "location": "Comon Aritao,Nueva Vizcaya, Philippines", 
+    "linkedin": "https://www.linkedin.com/" 
+  } 
+} 
